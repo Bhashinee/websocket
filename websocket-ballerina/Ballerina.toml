@@ -1,25 +1,32 @@
 [project]
 org-name = "ballerina"
-version = "1.0.2"
+version = "@toml.version@"
 
 [dependencies]
-"ballerina/io" = "0.5.2"
-"ballerina/http" = "1.0.2"
-"ballerina/log" = "1.0.2"
-"ballerina/stringutils" = "0.5.2"
-"ballerina/mime" = "1.0.2"
-"ballerina/auth" = "1.0.2"
-"ballerina/cache" = "2.0.2"
-"ballerina/time" = "1.0.3"
-"ballerina/crypto" = "1.0.2"
-"ballerina/file" = "0.5.3"
-"ballerina/reflect" = "0.5.2"
-"ballerina/runtime" = "0.5.2"
-"ballerina/system" = "0.6.2"
-"ballerina/task" = "1.1.2"
+"ballerina/io" = "@stdlib.io.version@"
+"ballerina/http" = "@stdlib.http.version@"
+"ballerina/log" = "@stdlib.log.version@"
+"ballerina/stringutils" = "@stdlib.stringutils.version@"
+"ballerina/mime" = "@stdlib.mime.version@"
+"ballerina/auth" = "@stdlib.auth.version@"
+"ballerina/cache" = "@stdlib.cache.version@"
+"ballerina/time" = "@stdlib.time.version@"
+"ballerina/crypto" = "@stdlib.crypto.version@"
+"ballerina/file" = "@stdlib.file.version@"
+"ballerina/reflect" = "@stdlib.reflect.version@"
+"ballerina/runtime" = "@stdlib.runtime.version@"
+"ballerina/system" = "@stdlib.system.version@"
+"ballerina/task" = "@stdlib.task.version@"
 
 [platform]
 target = "java11"
+
+    [[platform.libraries]]
+    artifactId = "websocket"
+    version = "@project.version@"
+    path = "../websocket-native/build/libs/websocket-native-@project.version@.jar"
+    groupId = "ballerina"
+    modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "http"
@@ -29,120 +36,113 @@ target = "java11"
     modules = ["websocket"]
 
     [[platform.libraries]]
-    artifactId = "websocket"
-    version = "1.0.2-SNAPSHOT"
-    path = "../websocket-native/build/libs/websocket-native-1.0.2-SNAPSHOT.jar"
-    groupId = "ballerina"
-    modules = ["websocket"]
-
-    [[platform.libraries]]
     artifactId = "mime-native"
-    version = "1.0.2-SNAPSHOT"
-    path = "./lib/mime-native-1.0.2-SNAPSHOT.jar"
+    version = "@stdlib.mimenative.version@"
+    path = "./lib/mime-native-@stdlib.mimenative.version@.jar"
     groupId = "ballerina"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "netty-common"
-    version = "4.1.50.Final"
-    path = "./lib/netty-common-4.1.50.Final.jar"
+    version = "@netty.version@"
+    path = "./lib/netty-common-@netty.version@.jar"
     groupId = "io.netty"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "netty-buffer"
-    version = "4.1.50.Final"
-    path = "./lib/netty-buffer-4.1.50.Final.jar"
+    version = "@netty.version@"
+    path = "./lib/netty-buffer-@netty.version@.jar"
     groupId = "io.netty"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "netty-transport"
-    version = "4.1.50.Final"
-    path = "./lib/netty-transport-4.1.50.Final.jar"
+    version = "@netty.version@"
+    path = "./lib/netty-transport-@netty.version@.jar"
     groupId = "io.netty"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "netty-resolver"
-    version = "4.1.50.Final"
-    path = "./lib/netty-resolver-4.1.50.Final.jar"
+    version = "@netty.version@"
+    path = "./lib/netty-resolver-@netty.version@.jar"
     groupId = "io.netty"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "netty-handler"
-    version = "4.1.50.Final"
-    path = "./lib/netty-handler-4.1.50.Final.jar"
+    version = "@netty.version@"
+    path = "./lib/netty-handler-@netty.version@.jar"
     groupId = "io.netty"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "netty-codec-http"
-    version = "4.1.50.Final"
-    path = "./lib/netty-codec-http-4.1.50.Final.jar"
+    version = "@netty.version@"
+    path = "./lib/netty-codec-http-@netty.version@.jar"
     groupId = "io.netty"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "netty-codec"
-    version = "4.1.50.Final"
-    path = "./lib/netty-codec-4.1.50.Final.jar"
+    version = "@netty.version@"
+    path = "./lib/netty-codec-@netty.version@.jar"
     groupId = "io.netty"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "netty-handler-proxy"
-    version = "4.1.50.Final"
-    path = "./lib/netty-handler-proxy-4.1.50.Final.jar"
+    version = "@netty.version@"
+    path = "./lib/netty-handler-proxy-@netty.version@.jar"
     groupId = "io.netty"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "netty-codec-http2"
-    version = "4.1.50.Final"
-    path = "./lib/netty-codec-http2-4.1.50.Final.jar"
+    version = "@netty.version@"
+    path = "./lib/netty-codec-http2-@netty.version@.jar"
     groupId = "io.netty"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "commons-pool"
-    version = "1.5.6.wso2v1"
-    path = "./lib/commons-pool-1.5.6.wso2v1.jar"
+    version = "@commmon.pool.version@"
+    path = "./lib/commons-pool-@commmon.pool.version@.jar"
     groupId = "commons-pool.wso2"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "snakeyaml"
-    version = "1.26.0.wso2v1"
-    path = "./lib/snakeyaml-1.26.0.wso2v1.jar"
+    version = "@snakeyaml.version@"
+    path = "./lib/snakeyaml-@snakeyaml.version@.jar"
     groupId = "org.wso2.orbit.org.yaml"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "bcprov-jdk15on"
-    version = "1.61"
-    path = "./lib/bcprov-jdk15on-1.61.jar"
+    version = "@bouncycastle.version@"
+    path = "./lib/bcprov-jdk15on-@bouncycastle.version@.jar"
     groupId = "org.bouncycastle"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "bcpkix-jdk15on"
-    version = "1.61"
-    path = "./lib/bcpkix-jdk15on-1.61.jar"
+    version = "@bouncycastle.version@"
+    path = "./lib/bcpkix-jdk15on-@bouncycastle.version@.jar"
     groupId = "org.bouncycastle"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "netty-tcnative-boringssl-static"
-    version = "2.0.31.Final"
-    path = "./lib/netty-tcnative-boringssl-static-2.0.31.Final.jar"
+    version = "@tcnative.version@"
+    path = "./lib/netty-tcnative-boringssl-static-@tcnative.version@.jar"
     groupId = "io.netty"
     modules = ["websocket"]
 
     [[platform.libraries]]
     artifactId = "mimepull"
-    version = "1.9.11"
-    path = "./lib/mimepull-1.9.11.jar"
+    version = "@mimepull.version@"
+    path = "./lib/mimepull-@mimepull.version@.jar"
     groupId = "org.jvnet.mimepull"
     modules = ["websocket"]

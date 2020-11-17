@@ -214,7 +214,6 @@ task updateTomlFile {
         newConfig = newConfig.replace("@bouncycastle.version@", stdlibDependentBouncycastleVersion)
         newConfig = newConfig.replace("@tcnative.version@", stdlibDependentNettyTcnativeVersion)
         newConfig = newConfig.replace("@mimepull.version@", stdlibDependentMimepullVersion)
-        newConfig = newConfig.replace("@testng.version@", stdlibDependentTestngVersion)
         ballerinaConfigFile.text = newConfig
     }
 }
