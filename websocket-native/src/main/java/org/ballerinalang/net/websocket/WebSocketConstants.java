@@ -34,7 +34,6 @@ public class WebSocketConstants {
     public static final String BALLERINA_ORG = "ballerina";
     public static final String PACKAGE_HTTP = "http";
     public static final String PACKAGE_WEBSOCKET = "websocket";
-    public static final String FULL_PACKAGE_HTTP = RuntimeConstants.BALLERINA_PACKAGE_PREFIX + PACKAGE_HTTP;
     public static final String SEPARATOR = ":";
     public static final String LISTENER = "Listener";
     public static final String WEBSOCKET_CONNECTOR = "WebSocketConnector";
@@ -45,7 +44,7 @@ public class WebSocketConstants {
     public static final String WSS_SCHEME = "wss";
     public static final String WS_SCHEME = "ws";
     public static final String WEBSOCKET_CALLER_NAME = RuntimeConstants.BALLERINA_PACKAGE_PREFIX +
-            PACKAGE_HTTP + SEPARATOR + HTTP_MODULE_VERSION + SEPARATOR + WEBSOCKET_CALLER;
+            PACKAGE_WEBSOCKET + SEPARATOR + HTTP_MODULE_VERSION + SEPARATOR + WEBSOCKET_CALLER;
     public static final String WEBSOCKET_CLIENT_NAME = PACKAGE_WEBSOCKET + SEPARATOR + WEBSOCKET_CLIENT;
     public static final String FULL_WEBSOCKET_CLIENT_NAME = RuntimeConstants.BALLERINA_PACKAGE_PREFIX +
             PACKAGE_HTTP + SEPARATOR + HTTP_MODULE_VERSION + SEPARATOR + WEBSOCKET_CLIENT;
@@ -126,6 +125,12 @@ public class WebSocketConstants {
     public static final String UNCHECKED = "unchecked";
     public static final String THE_WEBSOCKET_CONNECTION_HAS_NOT_BEEN_MADE =
             "The WebSocket connection has not been made";
+
+    public static final String WS_SERVICE_REGISTRY = "WS_SERVICE_REGISTRY";
+    public static final BString SERVICE_ENDPOINT_CONFIG = StringUtils.fromString("config");
+    public static final BString ENDPOINT_CONFIG_PORT = StringUtils.fromString("port");
+    public static final String HTTP_SERVER_CONNECTOR = "HTTP_SERVER_CONNECTOR";
+    public static final String CONNECTOR_STARTED = "CONNECTOR_STARTED";
 
     // Strand meta data
     public static final StrandMetadata ON_OPEN_METADATA =

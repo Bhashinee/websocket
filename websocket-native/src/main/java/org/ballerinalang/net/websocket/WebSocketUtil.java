@@ -71,6 +71,8 @@ import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.SSLException;
 
+import static org.ballerinalang.net.websocket.WebSocketConstants.PROTOCOL_WEBSOCKET_PKG_ID;
+
 /**
  * Utility class for WebSocket.
  */
@@ -87,10 +89,10 @@ public class WebSocketUtil {
     public static BObject createAndPopulateWebSocketCaller(WebSocketConnection webSocketConnection,
                                                                WebSocketServerService wsService,
                                                                WebSocketConnectionManager connectionManager) {
-        BObject webSocketCaller = ValueCreator.createObjectValue(HttpConstants.PROTOCOL_HTTP_PKG_ID,
-                                                                            WebSocketConstants.WEBSOCKET_CALLER);
-        BObject webSocketConnector = ValueCreator.createObjectValue(
-                HttpConstants.PROTOCOL_HTTP_PKG_ID, WebSocketConstants.WEBSOCKET_CONNECTOR);
+        BObject webSocketCaller = ValueCreator
+                .createObjectValue(PROTOCOL_WEBSOCKET_PKG_ID, WebSocketConstants.WEBSOCKET_CALLER);
+        BObject webSocketConnector = ValueCreator
+                .createObjectValue(PROTOCOL_WEBSOCKET_PKG_ID, WebSocketConstants.WEBSOCKET_CONNECTOR);
 
         webSocketCaller.set(WebSocketConstants.LISTENER_CONNECTOR_FIELD, webSocketConnector);
         populateWebSocketEndpoint(webSocketConnection, webSocketCaller);
@@ -229,7 +231,7 @@ public class WebSocketUtil {
             }
         } else if (throwable instanceof SSLException) {
             cause = createErrorCause(throwable.getMessage(), HttpErrorType.SSL_ERROR.getReason(),
-                    WebSocketConstants.PROTOCOL_WEBSOCKET_PKG_ID);
+                    PROTOCOL_WEBSOCKET_PKG_ID);
             message = "SSL/TLS Error";
         } else if (throwable instanceof IllegalStateException) {
             if (throwable.getMessage().contains("frame continuation")) {
@@ -591,6 +593,11 @@ public class WebSocketUtil {
     public static void setNotifyFailure(String msg, Future balFuture) {
         balFuture.complete(getWebSocketError(msg, null,
                 WebSocketConstants.ErrorCode.WsInvalidHandshakeError.errorCode(), null));
+    }
+
+    public static BError createWebsocketError(String message, HttpErrorType errorType) {
+        return ErrorCreator.createDistinctError(errorType.getErrorName(), PROTOCOL_WEBSOCKET_PKG_ID,
+                StringUtils.fromString(message));
     }
 
     private WebSocketUtil() {
